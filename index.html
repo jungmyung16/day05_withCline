@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamburger Showcase</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Favicon 위치 -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+
+    <!-- OG 태그 위치 -->
+    <meta property="og:title" content="오늘의 햄버거" />
+    <meta property="og:description" content="뭘 시킬까?" />
+    <meta property="og:image" content="" />
+
+    <!-- 웹폰트 위치 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-color: #a07855;
+        --secondary-color: #d4b996;
+      }
+      body {
+        padding-top: 20px;
+        background-color: var(--secondary-color);
+        font-family: "Black And White Picture", serif;
+        font-style: normal;
+      }
+      .jumbotron {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.3rem;
+      }
+      .card-img-top {
+        max-height: 200px;
+        object-fit: cover;
+      }
+      .card {
+        background-color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1 class="display-4">Today's Hamburger Picks</h1>
+        <p class="lead">Check out these delicious hamburgers for your lunch!</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="https://dummyimage.com/600x400/000/fff&text=Hamburger+1"
+              class="card-img-top"
+              alt="Hamburger 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Classic Beef Burger</h5>
+              <p class="card-text">
+                A juicy beef patty with lettuce, tomato, onion, and pickles.
+              </p>
+              <div class="accordion" id="accordionExample1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      More Details
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample1"
+                  >
+                    <div class="accordion-body">
+                      <strong>Ingredients:</strong> Beef patty, bun, lettuce,
+                      tomato, onion, pickles, special sauce.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div
+              id="carouselExample2"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://dummyimage.com/600x400/000/fff&text=Burger+2+Slide+1"
+                    class="d-block w-100"
+                    alt="Burger 2 Slide 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://dummyimage.com/600x400/000/fff&text=Burger+2+Slide+2"
+                    class="d-block w-100"
+                    alt="Burger 2 Slide 2"
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample2"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample2"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Spicy Chicken Burger</h5>
+              <p class="card-text">
+                A crispy chicken patty with spicy mayo, lettuce, and jalapenos.
+              </p>
+              <a href="#" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="https://dummyimage.com/600x400/000/fff&text=Hamburger+3"
+              class="card-img-top"
+              alt="Hamburger 3"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Veggie Burger</h5>
+              <p class="card-text">
+                A delicious veggie patty with avocado, sprouts, and a
+                whole-wheat bun.
+              </p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price: $8.99</li>
+                <li class="list-group-item">Rating: 4.5/5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for certain components like the carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
