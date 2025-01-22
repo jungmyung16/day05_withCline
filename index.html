@@ -71,7 +71,13 @@
         <h1 class="display-4">Today's Hamburger Picks</h1>
         <p class="lead">Check out these delicious hamburgers for your lunch!</p>
       </div>
-
+      <div class="row mt-3">
+        <div class="col-12">
+          <p style="font-size: 2.2em; color: rgb(255, 0, 64)">
+            Order Now를 눌러주세요!
+          </p>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-4">
           <div class="card">
@@ -261,7 +267,21 @@
         </div>
       </div>
     </div>
-
+    <!-- Order Summary -->
+    <div
+      class="container position-fixed"
+      style="right: 10px; top: 50%; transform: translateY(-50%); width: 300px"
+    >
+      <div class="card">
+        <div class="card-header">
+          <h4>Order Summary</h4>
+        </div>
+        <ul class="list-group list-group-flush" id="orderList">
+          <!-- Order items will be added here -->
+        </ul>
+        <div class="card-footer">Total: <span id="totalPrice">0</span></div>
+      </div>
+    </div>
     <!-- Toast Notification -->
     <div
       class="toast-container position-fixed top-50 start-50 translate-middle"
@@ -305,19 +325,40 @@
       const toastImage = document.getElementById("toastImage");
       const toastMessage = document.getElementById("toastMessage");
       const toastPrice = document.getElementById("toastPrice");
+      const orderList = document.getElementById("orderList");
+      const totalPrice = document.getElementById("totalPrice");
+      let total = 0;
 
       orderButtons.forEach((button) => {
         button.addEventListener("click", function (event) {
           event.preventDefault();
           const card = button.closest(".card");
           const imageSrc = card.querySelector("img").src;
-          const price = card.querySelector(".list-group-item").textContent;
+          const priceText = card.querySelector(".list-group-item").textContent;
+          const price = parseFloat(priceText.replace("Price: $", ""));
+          const burgerName = card.querySelector(".card-title").textContent;
 
           toastImage.src = imageSrc;
-          toastPrice.textContent = price;
+          toastPrice.textContent = priceText;
 
           const toast = new bootstrap.Toast(toastLiveExample);
           toast.show();
+
+          const listItem = document.createElement("li");
+          listItem.classList.add("list-group-item");
+          listItem.innerHTML = `${burgerName} - ${priceText} <button class="btn-close" aria-label="Close"></button>`;
+          orderList.appendChild(listItem);
+
+          total += price;
+          totalPrice.textContent = total.toFixed(2);
+
+          // Add event listener to the close button
+          const closeButton = listItem.querySelector(".btn-close");
+          closeButton.addEventListener("click", function () {
+            orderList.removeChild(listItem);
+            total -= price;
+            totalPrice.textContent = total.toFixed(2);
+          });
         });
       });
     </script>
